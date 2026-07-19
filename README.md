@@ -4,13 +4,16 @@ A Next.js profit and loss tracking application built for deployment on Vercel wi
 
 ## Setup
 
-1. Create a Supabase project.
-2. Add a table named `transactions` with the schema in `supabase/schema.sql`.
-3. Enable Google auth in Supabase Authentication > Providers.
-4. Set environment variables in Vercel or `.env.local`:
+1. Create a Supabase project at https://app.supabase.com.
+2. In your project, open `Settings > API` and copy the `Project URL` and `anon public` key.
+3. Open `Authentication > Providers` and enable `Google`.
+4. Add `http://localhost:3000` under `Redirect URLs` for local development.
+5. Add environment variables to `.env.local`:
 
-   - `NEXT_PUBLIC_SUPABASE_URL`
-   - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+   - `NEXT_PUBLIC_SUPABASE_URL=https://your-project-ref.supabase.co`
+   - `NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-public-key`
+
+6. Use `supabase/schema.sql` in Supabase SQL Editor or run the SQL there to create the `transactions` table.
 
 ## Database schema
 
