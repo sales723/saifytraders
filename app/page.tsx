@@ -70,7 +70,7 @@ export default function HomePage() {
   const fetchTransactions = async (userId: string) => {
     setLoading(true);
     const { data, error } = await supabase
-      .from<Transaction>('transactions')
+      .from('transactions')
       .select('*')
       .eq('user_id', userId)
       .order('date', { ascending: false });
@@ -80,7 +80,7 @@ export default function HomePage() {
       setErrorMessage(error.message);
       return;
     }
-    setTransactions(data || []);
+    setTransactions((data as Transaction[]) || []);
   };
 
   const handleSignIn = async () => {
