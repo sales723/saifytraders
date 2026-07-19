@@ -55,10 +55,10 @@ export default function HomePage() {
 
     init();
 
-    const { data: listener } = supabase.auth.onAuthStateChange((event, authSession) => {
-      setSession(authSession?.session as Session | null);
-      if (authSession?.session) {
-        fetchTransactions(authSession.session.user.id);
+    const { data: listener } = supabase.auth.onAuthStateChange((event, newSession) => {
+      setSession(newSession as Session | null);
+      if (newSession) {
+        fetchTransactions(newSession.user.id);
       } else {
         setTransactions([]);
       }
